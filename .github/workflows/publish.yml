@@ -1,0 +1,53 @@
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Download NuGet
+      run: |
+        Invoke-WebRequest -Uri "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile "nuget.exe"
+    
+    - name: Restore NuGet packages
+      run: nuget restore
+    
+    - name: Build project
+      run: msbuild .\Resto.Front.Api.Console\Resto.Front.Api.Console.csproj /p:Configuration=Release /t:Rebuild /v:minimal
+    
+    - name: Create NuGet package
+      run: |
+        New-Item -ItemType Directory -Force -Path ".\PackageOutput" | Out-Null
+        .\nuget.exe pack .\Resto.Front.Api.Console\Resto.Front.Api.Console.nuspec -OutputDirectory .\PackageOutput
+    
+    - name: Publish to NuGet.org (Trusted Publishing)
+      run: |
+        dotnet nuget push .\PackageOutput\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      if: success()
+    
+    - name: Upload package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-package
+        path: PackageOutput/*.nupkg
