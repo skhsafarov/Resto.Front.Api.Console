@@ -43,7 +43,7 @@ jobs:
     
     - name: Publish to NuGet.org (Trusted Publishing)
       run: |
-        dotnet nuget push .\PackageOutput\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+        dotnet nuget push .\PackageOutput\*.nupkg --source https://api.nuget.org/v3/index.json
       if: success()
     
     - name: Upload package artifact
