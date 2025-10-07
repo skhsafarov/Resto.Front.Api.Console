@@ -30,11 +30,9 @@ jobs:
       run: |
         Invoke-WebRequest -Uri "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile "nuget.exe"
     
-    - name: Restore NuGet packages
-      run: nuget restore
-    
     - name: Build project
-      run: msbuild .\Resto.Front.Api.Console\Resto.Front.Api.Console.csproj /p:Configuration=Release /t:Rebuild /v:minimal
+      run: |
+        msbuild .\Resto.Front.Api.Console\Resto.Front.Api.Console.csproj /p:Configuration=Release /t:Rebuild /v:minimal /nologo
     
     - name: Create NuGet package
       run: |
@@ -43,7 +41,7 @@ jobs:
     
     - name: Publish to NuGet.org (Trusted Publishing)
       run: |
-        dotnet nuget push .\PackageOutput\*.nupkg --source https://api.nuget.org/v3/index.json
+        dotnet nuget push .\PackageOutput\*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
       if: success()
     
     - name: Upload package artifact
@@ -51,3 +49,4 @@ jobs:
       with:
         name: nuget-package
         path: PackageOutput/*.nupkg
+      if: always()
