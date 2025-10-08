@@ -39,12 +39,7 @@ namespace RestoFrontApiConsole
                         PipeTransmissionMode.Message,
                         PipeOptions.Asynchronous))
                     {
-                        SystemConsole.WriteLine($"[{DateTime.Now:HH:mm:ss}] Waiting for plugin connection...");
-
                         await pipeServer.WaitForConnectionAsync(cancellationToken);
-
-                        SystemConsole.WriteLine($"[{DateTime.Now:HH:mm:ss}] Plugin connected!\n");
-
                         await ReadFromPipeAsync(pipeServer, cancellationToken);
                     }
                 }

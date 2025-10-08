@@ -58,17 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BUILD.md" />
-    <None Include="CHANGELOG.md" />
-    <None Include="LICENSE" />
-    <None Include="README.md" />
-    <None Include="Resto.Front.Api.Console.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -85,7 +79,7 @@
   <!-- NuGet Package Properties -->
   <PropertyGroup>
     <PackageId>Resto.Front.Api.Console</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.2.4</PackageVersion>
     <Authors>Sardor Safarov</Authors>
     <Company>Rahmat</Company>
     <Product>Resto Front API Console</Product>

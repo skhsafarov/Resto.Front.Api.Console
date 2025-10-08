@@ -74,10 +74,6 @@ namespace RestoFrontApiConsole
                     _writer = new StreamWriter(_pipeClient, Encoding.UTF8) { AutoFlush = true };
                     _isConnected = true;
 
-                    WriteLine("ConsoleLogger connected successfully.");
-                    WriteLine($"[INFO] Console path: {consoleExePath}");
-
-
                     RedirectConsoleOutput();
 
                     _isInitialized = true;
@@ -130,6 +126,10 @@ namespace RestoFrontApiConsole
             }
         }
 
+        /// <summary>
+        /// Записывает сообщение в консоль мониторинга.
+        /// </summary>
+        /// <param name="message">Сообщение для вывода</param>
         public static void WriteLine(string message)
         {
             if (!_isConnected)
@@ -153,11 +153,19 @@ namespace RestoFrontApiConsole
             }
         }
 
+        /// <summary>
+        /// Записывает форматированное сообщение в консоль мониторинга.
+        /// </summary>
+        /// <param name="format">Строка формата</param>
+        /// <param name="args">Аргументы для форматирования</param>
         public static void WriteLine(string format, params object[] args)
         {
             WriteLine(string.Format(format, args));
         }
 
+        /// <summary>
+        /// Получает значение, указывающее, установлено ли подключение к консоли мониторинга.
+        /// </summary>
         public static bool IsConnected
         {
             get { return _isConnected; }

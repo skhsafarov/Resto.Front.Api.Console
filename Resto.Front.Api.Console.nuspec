@@ -2,28 +2,63 @@
 <package>
   <metadata>
     <id>Resto.Front.Api.Console</id>
-    <version>1.1.0</version>
+    <version>1.2.4</version>
     <title>Resto Front API Console Logger</title>
     <authors>Sardor Safarov</authors>
     <owners>Sardor Safarov</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/skhsafarov/Resto.Front.Api.Console</projectUrl>
     <repository type="git" url="https://github.com/skhsafarov/Resto.Front.Api.Console" branch="master" />
+    <readme>README.md</readme>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
       Консольное приложение для мониторинга и отладки плагинов системы iiko Resto Front API. 
       Предоставляет удобный способ просмотра логов в реальном времени с цветным форматированием 
       и автоматическим перенаправлением вывода Console.WriteLine.
       
+      НОВОЕ В ВЕРСИИ 1.2.0:
+      • Теперь включает DLL библиотеку - больше не нужно копировать исходный код!
+      • Просто установите пакет и используйте: using RestoFrontApiConsole;
+      • Автоматическая интеграция через NuGet
+      
       Особенности:
       • Мониторинг в реальном времени через Named Pipes
       • Автоматическое цветное форматирование по уровню логов
-      • Автоматический запуск консоли при подключении плагина
       • Поддержка graceful shutdown
       • Простота интеграции - просто используйте Console.WriteLine
     </description>
     <summary>Консольный логгер для плагинов iiko Resto Front API с поддержкой цветного вывода и мониторинга в реальном времени</summary>
     <releaseNotes>
+      v1.2.4:
+      • Обновлена документация - теперь используется алиас using Console = RestoFrontApiConsole.Console;
+      • Добавлены примеры с алиасом для избежания конфликта имен
+      • Улучшена секция "Решение проблем"
+      
+      v1.2.3:
+      • Исправлена и упрощена вся документация
+      • Улучшена читабельность README.md
+      • Добавлены быстрые инструкции
+      
+      v1.2.2:
+      • Очищена структура проекта - удалены лишние файлы
+      • Документация вынесена на уровень решения
+      • Улучшена организация файлов
+      
+      v1.2.1:
+      • Оптимизирована структура проекта
+      • Исправлены пути к библиотекам
+      • Улучшена стабильность пакета
+      
+      v1.2.0:
+      • BREAKING CHANGE: Теперь пакет включает DLL библиотеку!
+      • Больше не нужно копировать исходный код - просто установите и используйте
+      • Добавлена Resto.Front.Api.Console.Client.dll в папку lib
+      • Улучшена документация для нового способа использования
+      
+      v1.1.1:
+      • Добавлен README в пакет для NuGet Gallery
+      • Исправлена структура метаданных пакета
+      
       v1.1.0:
       • Улучшена документация и README
       • Добавлены примеры использования
@@ -46,20 +81,20 @@
     </dependencies>
   </metadata>
   <files>
-    <!-- Основное консольное приложение -->
+    <!-- Консольное приложение для мониторинга -->
     <file src="bin\Release\Resto.Front.Console.exe" target="tools\Resto.Front.Console.exe" />
     <file src="bin\Release\Resto.Front.Console.exe.config" target="tools\Resto.Front.Console.exe.config" />
     <file src="bin\Release\Resto.Front.Console.pdb" target="tools\Resto.Front.Console.pdb" />
     
-    <!-- Библиотека для интеграции в плагины -->
-    <file src="bin\Release\Resto.Front.Api.Console.dll" target="lib\net472\Resto.Front.Api.Console.dll" />
-    <file src="bin\Release\Resto.Front.Api.Console.pdb" target="lib\net472\Resto.Front.Api.Console.pdb" />
+    <!-- Клиентская библиотека для интеграции -->
+    <file src="..\..\..\Resto.Front.Api.Console.Client\bin\Release\net472\Resto.Front.Api.Console.Client.dll" target="lib\net472\Resto.Front.Api.Console.Client.dll" />
+    <file src="..\..\..\Resto.Front.Api.Console.Client\bin\Release\net472\Resto.Front.Api.Console.Client.pdb" target="lib\net472\Resto.Front.Api.Console.Client.pdb" />
     
     <!-- Документация -->
-    <file src="README.md" target="README.md" />
+    <file src="..\README.md" target="README.md" />
     
     <!-- Исходный код для справки -->
-    <file src="Console.cs" target="src\Console.cs" />
+    <file src="..\..\..\Resto.Front.Api.Console.Client\Console.cs" target="src\Console.cs" />
     <file src="Program.cs" target="src\Program.cs" />
   </files>
 </package>
