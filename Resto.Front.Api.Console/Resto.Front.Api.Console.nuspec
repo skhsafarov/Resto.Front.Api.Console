@@ -1,101 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Resto.Front.Api.Console</id>
-  <version>1.2.6</version>
+    <version>2.0.0</version>
     <title>Resto Front API Console Logger</title>
     <authors>Sardor Safarov</authors>
     <owners>Sardor Safarov</owners>
-    <license type="expression">MIT</license>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/skhsafarov/Resto.Front.Api.Console</projectUrl>
-    <repository type="git" url="https://github.com/skhsafarov/Resto.Front.Api.Console" branch="master" />
-    <readme>README.md</readme>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>
-      Консольное приложение для мониторинга и отладки плагинов системы iiko Resto Front API. 
-      Предоставляет удобный способ просмотра логов в реальном времени с цветным форматированием 
-      и автоматическим перенаправлением вывода Console.WriteLine.
-      
-      НОВОЕ В ВЕРСИИ 1.2.6:
-      • Единый пакет содержит как исполняемый файл (.exe), так и библиотеку (.dll)
-      • Упрощена установка - все необходимые файлы в одном пакете
-      • Больше не требуется отдельный пакет Client
-      
-      Особенности:
-      • Мониторинг в реальном времени через Named Pipes
-      • Автоматическое цветное форматирование по уровню логов
-      • Поддержка graceful shutdown
-      • Простота интеграции - просто используйте Console.WriteLine
-    </description>
-    <summary>Консольный логгер для плагинов iiko Resto Front API с поддержкой цветного вывода и мониторинга в реальном времени</summary>
-    <releaseNotes>
-      v1.2.6:
-      • Объединены оба пакета в один
-      • Теперь при установке доступны и .exe, и .dll файлы
-      • Упрощена структура пакета
-      
-      v1.2.5:
-      • Техническое обновление
-      
-      v1.2.4:
-      • Обновлена документация - теперь используется алиас using Console = RestoFrontApiConsole.Console;
-      • Добавлены примеры с алиасом для избежания конфликта имен
-      • Улучшена секция "Решение проблем"
-      
-      v1.2.3:
-      • Исправлена и упрощена вся документация
-      • Улучшена читабельность README.md
-      • Добавлены быстрые инструкции
-      
-      v1.2.2:
-      • Очищена структура проекта - удалены лишние файлы
-      • Документация вынесена на уровень решения
-      • Улучшена организация файлов
-      
-      v1.2.1:
-      • Оптимизирована структура проекта
-      • Исправлены пути к библиотекам
-      • Улучшена стабильность пакета
-      
-      v1.2.0:
-      • BREAKING CHANGE: Теперь пакет включает DLL библиотеку!
-      • Больше не нужно копировать исходный код - просто установите и используйте
-      • Добавлена Resto.Front.Api.Console.Client.dll в папку lib
-      • Улучшена документация для нового способа использования
-      
-      v1.1.1:
-      • Добавлен README в пакет для NuGet Gallery
-      • Исправлена структура метаданных пакета
-      
-      v1.1.0:
-      • Улучшена документация и README
-      • Добавлены примеры использования
-      • Исправлены мелкие баги в перенаправлении вывода
-      • Улучшена обработка ошибок подключения
-      
-      v1.0.0:
-      • Первый релиз
-      • Базовая функциональность логирования через Named Pipes
-      • Цветное форматирование сообщений
-      • Автоматическое перенаправление Console.WriteLine
-    </releaseNotes>
+    <description>Console logger library for Resto Front API integration and monitoring. Automatically starts console application and provides logging capabilities for iiko plugins.</description>
+    <summary>Библиотека консольного логгера для плагинов iiko Resto Front API с автоматическим запуском консоли мониторинга</summary>
+    <releaseNotes>v2.0.0: MAJOR UPDATE - Restructured as library with automatic console launcher. Added ConsoleLogger class with improved connectivity and auto-reconnection.</releaseNotes>
     <copyright>Copyright © Rahmat 2025</copyright>
-    <language>ru-RU</language>
-    <tags>resto front api console pos iiko logging monitor debug plugin realtime pipe</tags>
+    <tags>resto front api console pos iiko logging monitor debug plugin</tags>
     <dependencies>
-      <group targetFramework=".NETFramework4.7.2">
-        <!-- No external dependencies - uses only .NET Framework built-in libraries -->
-      </group>
+      <group targetFramework="net472" />
     </dependencies>
   </metadata>
   <files>
-    <!-- Консольное приложение для мониторинга -->
-    <file src="..\temp_client\tools\Resto.Front.Console.exe" target="tools\Resto.Front.Console.exe" />
+    <!-- Библиотека -->
+    <file src="bin\Release\Resto.Front.Api.Console.dll" target="lib\net472\" />
     
-    <!-- Клиентская библиотека для интеграции -->
-    <file src="..\temp_client\lib\net472\Resto.Front.Api.Console.Client.dll" target="lib\net472\Resto.Front.Api.Console.Client.dll" />
+    <!-- MSBuild targets -->
+    <file src="build\Resto.Front.Api.Console.targets" target="build\" />
+    
+    <!-- Консольное приложение -->
+    <file src="bin\Release\tools\Resto.Front.Console.exe" target="tools\" />
+    <file src="bin\Release\tools\Resto.Front.Console.exe.config" target="tools\" />
     
     <!-- Документация -->
-    <file src="..\README.md" target="README.md" />
+    <file src="..\README.md" target="" />
   </files>
 </package>

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11018.127 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resto.Front.Api.Console", "Resto.Front.Api.Console\Resto.Front.Api.Console.csproj", "{F6F81E90-B632-4416-9F7E-4936F0B61638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resto.Front.Console", "Resto.Front.Api.Console\ConsoleApp\Resto.Front.Console.csproj", "{B8F3D8F1-1234-5678-9ABC-DEF123456789}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{11111111-2222-3333-4444-555555555555}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2150E333-8FDC-42A3-9474-1A3956D46DE9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{2150E333-8FDC-42A3-9474-1A3956D46DEA}"
+	ProjectSection(SolutionItems) = preProject
+		Resto.Front.Api.Console\BUILD_INSTRUCTIONS.md = Resto.Front.Api.Console\BUILD_INSTRUCTIONS.md
+		Resto.Front.Api.Console\Resto.Front.Api.Console.nuspec = Resto.Front.Api.Console\Resto.Front.Api.Console.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{2150E333-8FDC-42A3-9474-1A3956D46DEB}"
+	ProjectSection(SolutionItems) = preProject
+		Resto.Front.Api.Console\Examples\ExamplePlugin.cs = Resto.Front.Api.Console\Examples\ExamplePlugin.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F81E90-B632-4416-9F7E-4936F0B61638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F81E90-B632-4416-9F7E-4936F0B61638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F81E90-B632-4416-9F7E-4936F0B61638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F81E90-B632-4416-9F7E-4936F0B61638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F3D8F1-1234-5678-9ABC-DEF123456789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F3D8F1-1234-5678-9ABC-DEF123456789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F3D8F1-1234-5678-9ABC-DEF123456789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11111111-2222-3333-4444-555555555555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11111111-2222-3333-4444-555555555555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11111111-2222-3333-4444-555555555555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11111111-2222-3333-4444-555555555555}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12345678-ABCD-EFGH-1234-567890ABCDEF}
+	EndGlobalSection
+EndGlobal

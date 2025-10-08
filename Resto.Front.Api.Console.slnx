@@ -1,10 +1,19 @@
 <Solution>
-  <Folder Name="/Элементы решения/">
-    <File Path=".gitattributes" />
+  <Folder Name="/Documentation/">
+    <File Path="Resto.Front.Api.Console/BUILD_INSTRUCTIONS.md" />
+    <File Path="Resto.Front.Api.Console/Resto.Front.Api.Console.nuspec" />
+  </Folder>
+  <Folder Name="/Examples/">
+    <File Path="Resto.Front.Api.Console/Examples/ExamplePlugin.cs" />
+  </Folder>
+  <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
-    <File Path="IMPORTANT_COMMANDS.md" />
-    <File Path="LICENSE.txt" />
+    <File Path="LICENSE" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="Resto.Front.Api.Console/Resto.Front.Api.Console.csproj" Id="f6f81e90-b632-4416-9f7e-4936f0b61638" />
+  <Project Path="Resto.Front.Api.Console/ConsoleApp/Resto.Front.Console.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="Resto.Front.Api.Console/Resto.Front.Api.Console.csproj" />
+  <Project Path="TestPlugin/TestPlugin.csproj" />
 </Solution>

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("Resto.Front.Console")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Resto.Front.Api.Console")]
+[assembly: AssemblyDescription("Cross-process console monitor for debugging and monitoring iiko Resto Front API plugins")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Resto.Front.Console")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyCompany("Sardor Safarov")]
+[assembly: AssemblyProduct("Resto Front API Console Logger")]
+[assembly: AssemblyCopyright("Copyright © 2024 Sardor Safarov")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Номер сборки
 //      Номер редакции
 //
-[assembly: AssemblyVersion("1.2.4.0")]
-[assembly: AssemblyFileVersion("1.2.4.0")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]

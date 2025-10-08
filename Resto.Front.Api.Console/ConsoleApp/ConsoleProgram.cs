@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.IO.Pipes;
 using System.Text;
@@ -9,12 +9,20 @@ using SystemConsole = System.Console;
 
 namespace RestoFrontApiConsole
 {
-    public class Program
+    /// <summary>
+    /// ?????????? ?????????? ??? ??????????? ????????? ?? ???????? Resto Front API
+    /// </summary>
+    public class ConsoleProgram
     {
         private const string PipeName = "IikoPluginConsole";
         
         static async Task Main(string[] args)
         {
+            SystemConsole.Title = "Resto Front API Console Monitor";
+            SystemConsole.WriteLine("=== Resto Front API Console Monitor ===");
+            SystemConsole.WriteLine("Waiting for plugin connections...");
+            SystemConsole.WriteLine("Press Ctrl+C to exit");
+            SystemConsole.WriteLine();
 
             var cts = new CancellationTokenSource();
             SystemConsole.CancelKeyPress += (s, e) =>
@@ -39,7 +47,10 @@ namespace RestoFrontApiConsole
                         PipeTransmissionMode.Message,
                         PipeOptions.Asynchronous))
                     {
+                        SystemConsole.WriteLine($"[{DateTime.Now:HH:mm:ss}] Waiting for connection...");
                         await pipeServer.WaitForConnectionAsync(cancellationToken);
+                        SystemConsole.WriteLine($"[{DateTime.Now:HH:mm:ss}] Plugin connected!");
+                        
                         await ReadFromPipeAsync(pipeServer, cancellationToken);
                     }
                 }
@@ -68,7 +79,7 @@ namespace RestoFrontApiConsole
                         if (line == null)
                             break;
 
-                        // Форматированный вывод с временной меткой и цветом
+                        // ??????????????? ????? ? ????????? ?????? ? ??????
                         WriteColoredLine(line);
                     }
                 }
@@ -85,7 +96,7 @@ namespace RestoFrontApiConsole
 
         static void WriteColoredLine(string line)
         {
-            // Цветной вывод в зависимости от типа сообщения
+            // ??????? ????? ? ??????????? ?? ???? ?????????
             if (line.Contains("[ERROR]"))
             {
                 SystemConsole.ForegroundColor = ConsoleColor.Red;

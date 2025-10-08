@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <!-- ???????? ?????????? ?????????? ? ????? ?????? -->
+  <Target Name="CopyConsoleFiles" BeforeTargets="Build">
+    <ItemGroup>
+      <ConsoleFiles Include="$(MSBuildThisFileDirectory)..\tools\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ConsoleFiles)" 
+          DestinationFiles="@(ConsoleFiles->'$(OutputPath)%(RecursiveDir)%(Filename)%(Extension)')" 
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- ?????? ??????????? ?????????? ????? ?????? (???????????) -->
+  <Target Name="StartConsoleIfRequested" AfterTargets="Build" Condition="'$(StartRestoConsole)' == 'true'">
+    <Message Text="Starting Resto.Front.Console..." Importance="high" />
+    <Exec Command="start &quot;$(OutputPath)Resto.Front.Console.exe&quot;" 
+          ContinueOnError="true" 
+          IgnoreExitCode="true" />
+  </Target>
+
+</Project>

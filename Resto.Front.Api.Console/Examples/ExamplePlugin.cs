@@ -1,0 +1,85 @@
+using System;
+using System.Threading;
+using RestoFrontApiConsole;
+
+namespace ExamplePlugin
+{
+    /// <summary>
+    /// ?????? ????????????? Resto.Front.Api.Console ? ??????? iiko
+    /// </summary>
+    public class PluginExample
+    {
+        public void Initialize()
+        {
+            // ??????? ?????????? ????????????? ??? ?????? ??????
+            ConsoleLogger.WriteLine("=== Plugin Example Started ===");
+            
+            // ????????? ???? ?????????
+            ConsoleLogger.WriteLine("[INFO] Plugin initialized successfully");
+            ConsoleLogger.WriteLine("[WARN] This is a warning message");
+            ConsoleLogger.WriteLine("[ERROR] This is an error message");
+            
+            // ??????????????? ?????
+            var version = "1.0.0";
+            var buildDate = DateTime.Now;
+            ConsoleLogger.WriteLine("Plugin version: {0}, built on {1:yyyy-MM-dd}", version, buildDate);
+            
+            // ???????? ???????????
+            if (ConsoleLogger.IsConnected)
+            {
+                ConsoleLogger.WriteLine("[INFO] Console connection established");
+            }
+            else
+            {
+                // ????????? ????????????????
+                ConsoleLogger.Reconnect();
+            }
+            
+            // ?????? ?????? ? ????????
+            SimulateOrderProcessing();
+        }
+        
+        private void SimulateOrderProcessing()
+        {
+            ConsoleLogger.WriteLine("*** Starting order simulation ***");
+            
+            for (int i = 1; i <= 3; i++)
+            {
+                var orderId = $"ORDER-{i:D4}";
+                var total = (decimal)(100 + i * 50);
+                
+                ConsoleLogger.WriteLine("Processing order: {0}", orderId);
+                
+                // ???????? ?????????
+                Thread.Sleep(1000);
+                
+                ConsoleLogger.WriteLine("[INFO] Order {0} completed with total: {1:C}", orderId, total);
+            }
+            
+            ConsoleLogger.WriteLine("*** Order simulation completed ***");
+        }
+        
+        public void Shutdown()
+        {
+            ConsoleLogger.WriteLine("[INFO] Plugin is shutting down...");
+            
+            // ????????? ?????????? ??? ?????????? ??????
+            ConsoleLogger.Shutdown();
+        }
+    }
+    
+    // ?????? ??? ???????????? (????? ????????? ????????)
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var plugin = new PluginExample();
+            plugin.Initialize();
+            
+            Console.WriteLine("Press any key to shutdown...");
+            Console.ReadKey();
+            
+            plugin.Shutdown();
+        }
+    }
+}
