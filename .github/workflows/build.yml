@@ -1,4 +1,16 @@
-﻿jobs:
+﻿name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
   build-and-publish:
     permissions:
       id-token: write  # enable GitHub OIDC token issuance for this job
@@ -16,3 +28,4 @@
       # Push the package
       - name: NuGet push
         run: dotnet nuget push artifacts/my-sdk.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+
