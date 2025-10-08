@@ -5,8 +5,6 @@
     <File Path="IMPORTANT_COMMANDS.md" />
     <File Path="LICENSE.txt" />
     <File Path="README.md" />
-    <File Path="Resto.Front.Api.Console.nuspec" />
   </Folder>
-  <Project Path="Resto.Front.Api.Console.Client/Resto.Front.Api.Console.Client.csproj" Id="f4abc04f-763a-463c-941b-5925aad9a385" />
   <Project Path="Resto.Front.Api.Console/Resto.Front.Api.Console.csproj" Id="f6f81e90-b632-4416-9f7e-4936f0b61638" />
 </Solution>

@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Resto.Front.Api.Console</id>
-    <version>1.2.4</version>
+  <version>1.2.6</version>
     <title>Resto Front API Console Logger</title>
     <authors>Sardor Safarov</authors>
     <owners>Sardor Safarov</owners>
@@ -16,10 +16,10 @@
       Предоставляет удобный способ просмотра логов в реальном времени с цветным форматированием 
       и автоматическим перенаправлением вывода Console.WriteLine.
       
-      НОВОЕ В ВЕРСИИ 1.2.0:
-      • Теперь включает DLL библиотеку - больше не нужно копировать исходный код!
-      • Просто установите пакет и используйте: using RestoFrontApiConsole;
-      • Автоматическая интеграция через NuGet
+      НОВОЕ В ВЕРСИИ 1.2.6:
+      • Единый пакет содержит как исполняемый файл (.exe), так и библиотеку (.dll)
+      • Упрощена установка - все необходимые файлы в одном пакете
+      • Больше не требуется отдельный пакет Client
       
       Особенности:
       • Мониторинг в реальном времени через Named Pipes
@@ -29,6 +29,14 @@
     </description>
     <summary>Консольный логгер для плагинов iiko Resto Front API с поддержкой цветного вывода и мониторинга в реальном времени</summary>
     <releaseNotes>
+      v1.2.6:
+      • Объединены оба пакета в один
+      • Теперь при установке доступны и .exe, и .dll файлы
+      • Упрощена структура пакета
+      
+      v1.2.5:
+      • Техническое обновление
+      
       v1.2.4:
       • Обновлена документация - теперь используется алиас using Console = RestoFrontApiConsole.Console;
       • Добавлены примеры с алиасом для избежания конфликта имен
@@ -82,19 +90,12 @@
   </metadata>
   <files>
     <!-- Консольное приложение для мониторинга -->
-    <file src="bin\Release\Resto.Front.Console.exe" target="tools\Resto.Front.Console.exe" />
-    <file src="bin\Release\Resto.Front.Console.exe.config" target="tools\Resto.Front.Console.exe.config" />
-    <file src="bin\Release\Resto.Front.Console.pdb" target="tools\Resto.Front.Console.pdb" />
+    <file src="..\temp_client\tools\Resto.Front.Console.exe" target="tools\Resto.Front.Console.exe" />
     
     <!-- Клиентская библиотека для интеграции -->
-    <file src="..\..\..\Resto.Front.Api.Console.Client\bin\Release\net472\Resto.Front.Api.Console.Client.dll" target="lib\net472\Resto.Front.Api.Console.Client.dll" />
-    <file src="..\..\..\Resto.Front.Api.Console.Client\bin\Release\net472\Resto.Front.Api.Console.Client.pdb" target="lib\net472\Resto.Front.Api.Console.Client.pdb" />
+    <file src="..\temp_client\lib\net472\Resto.Front.Api.Console.Client.dll" target="lib\net472\Resto.Front.Api.Console.Client.dll" />
     
     <!-- Документация -->
     <file src="..\README.md" target="README.md" />
-    
-    <!-- Исходный код для справки -->
-    <file src="..\..\..\Resto.Front.Api.Console.Client\Console.cs" target="src\Console.cs" />
-    <file src="Program.cs" target="src\Program.cs" />
   </files>
 </package>
