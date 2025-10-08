@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="README.md" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="Resto.Front.Api.Console.nuspec" />
   </ItemGroup>
   <ItemGroup>
@@ -79,5 +79,23 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <!-- NuGet Package Properties -->
+  <PropertyGroup>
+    <PackageId>Resto.Front.Api.Console</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Sardor Safarov</Authors>
+    <Company>Rahmat</Company>
+    <Product>Resto Front API Console</Product>
+    <Description>Console application for Resto Front API integration and testing</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/skhsafarov/Resto.Front.Api.Console</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skhsafarov/Resto.Front.Api.Console</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>resto;front;api;console;pos</PackageTags>
+    <PackageReleaseNotes>Initial release of Resto Front API Console application</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Resto.Front.Api.Console</id>
+    <version>1.0.0</version>
+    <authors>Sardor Safarov</authors>
+    <owners>Sardor Safarov</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/skhsafarov/Resto.Front.Api.Console</projectUrl>
+    <repository type="git" url="https://github.com/skhsafarov/Resto.Front.Api.Console" />
+    <description>Console application for Resto Front API integration and testing</description>
+    <releaseNotes>Initial release of Resto Front API Console application</releaseNotes>
+    <copyright>Copyright © Rahmat 2025</copyright>
+    <tags>resto front api console pos</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <!-- Add any NuGet package dependencies here -->
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Resto.Front.Console.exe" target="tools\Resto.Front.Console.exe" />
+    <file src="bin\Release\Resto.Front.Console.exe.config" target="tools\Resto.Front.Console.exe.config" />
+  </files>
+</package>
