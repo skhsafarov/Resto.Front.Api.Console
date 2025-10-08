@@ -26,6 +26,7 @@ namespace RestoFrontApiConsole
             await RunServerAsync(cts.Token);
         }
 
+
         static async Task RunServerAsync(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
